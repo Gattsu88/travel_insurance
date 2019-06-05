@@ -1,0 +1,56 @@
+body {
+    background-color: #f1f1f1 !important;
+}
+
+#view, .additionalView {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#view thead, .additionalView thead {
+  user-select: none;
+}
+
+#view td, #view th, .additionalView td, .additionalView th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.card-header {
+  background-color: #305f72;
+  color: white;
+}
+
+.bg-light {
+  background-color:darkslategrey !important;
+}
+.navbar-dark {
+  color: white !important;
+}
+#navbarNav {
+  padding-left: 100px !important;
+  font-weight: bold;
+}
+
+#view tr:nth-child(even), .additionalView tr:nth-child(even){
+  background-color: #cedbe0;
+}
+
+#view tr:hover, .additionalView tr:hover {
+  background-color: #40a04d;
+}
+
+#view th, .additionalView th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #305f72;
+  color: white;
+}
+
+.btn-sub {
+  background-color: #305f72;
+  color: white;
+}

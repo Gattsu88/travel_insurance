@@ -1,0 +1,11 @@
+{
+	"autoload": {
+        "classmap": [
+            "class"
+        ]
+    },
+	"require": {
+        "ext-json": "*",
+		"mpdf/mpdf": "^8.0"
+	}
+}
