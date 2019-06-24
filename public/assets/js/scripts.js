@@ -125,7 +125,7 @@ $(function () {
 		'<div class="form-group row">' +
 			'<label class="col-lg-3 col-form-label form-control-label">Birthdate <span class="text-danger">*</span></label>' +
 			'<div class="col-lg-9">' +
-				'<input class="form-control" type="text" value="" id="birthdate_insured" name="birthdate" autocomplete="off">' +
+				'<input class="form-control birthdate_insured" type="text" value="" name="birthdate" autocomplete="off">' +
 			'</div>' +
 		'</div>' +
 		'<div class="form-group row">' +
@@ -139,15 +139,42 @@ $(function () {
     $("#additionalInsured").click(function(e) {
 		e.preventDefault();
 		$("#forms").append(additionalForm);
+		$('#forms').children('.additional').each(function() {
+			$(this).find('.birthdate_insured').datepicker({
+				changeMonth: true,
+		        changeYear: true,
+		        dateFormat: 'yy-mm-dd',
+		        maxDate: '-1d',
+		        yearRange: '-100y:c+nn',
+		        onSelect: function (selected) {
+		            var dt = new Date(selected);
+		            dt.setDate(dt.getDate() + 1);
+		            $("#birthdate_insured").datepicker("option", "maxDate", "yearRange", "-100y:c+nn");
+		        }
+			})
+		})
 	});
 
-	$('#group').change(
-		function(){
-			if ($(this).is(':checked')) {
-				$("#forms").append(additionalForm);
-				$("#additionalInsured").show();
-				$("#additionalTitle").show();
-			}
+	$('#group').change(function(){
+		if ($(this).is(':checked')) {
+			$("#forms").append(additionalForm);
+			$("#additionalInsured").show();
+			$("#additionalTitle").show();
+			$('#forms').children('.additional').each(function() {
+				$(this).find('.birthdate_insured').datepicker({
+					changeMonth: true,
+			        changeYear: true,
+			        dateFormat: 'yy-mm-dd',
+			        maxDate: '-1d',
+			        yearRange: '-100y:c+nn',
+			        onSelect: function (selected) {
+			            var dt = new Date(selected);
+			            dt.setDate(dt.getDate() + 1);
+			            $("#birthdate_insured").datepicker("option", "maxDate", "yearRange", "-100y:c+nn");
+			        }
+				})
+			})
+		}
 	});
 
 	$('#individual').change(
